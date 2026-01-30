@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | Hotel Management</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="dashboard-page">
+
+    <!-- NAVBAR -->
+    <header class="dashboard-navbar">
+        <h2>Hotel Management Dashboard</h2>
+        <a href="{% url 'accounts:logout' %}" class="logout-btn">Logout</a>
+    </header>
+
+    <!-- MAIN DASHBOARD CONTENT -->
+    <main class="dashboard-container">
+        <h1>Available Rooms</h1>
+
+        {% if rooms %}
+            {% for room in rooms %}
+                <div class="room-card">
+                    {% if room.image_name %}
+                        <img src="{% static 'images/'|add:room.image_name %}" alt="Room {{ room.room_number }}">
+                    {% else %}
+                        <img src="{% static 'images/room1.jpg' %}" alt="Default Room">
+                    {% endif %}
+                    <h4>Room {{ room.room_number }}</h4>
+                    <p>Type: {{ room.room_type }}</p>
+                    <p>Price: ₹{{ room.price_per_night }}</p>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'bookings:book_room' room.id %}" class="book-btn">Book Now</a>
+                    {% else %}
+                        <a href="{% url 'accounts:login' %}" class="book-btn">Login to Book</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No rooms available right now.</p>
+        {% endif %}
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,495 @@
+/* ===============================
+   RESET & COMMON
+================================ */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #f4f6f8;
+    color: #333;
+}
+
+/* ===============================
+   AUTH PAGES
+================================ */
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 400px;
+    background: #fff;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.auth-card h2 {
+    font-size: 24px;
+    color: #2c5364;
+    margin-bottom: 10px;
+}
+
+.auth-card label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #555;
+}
+
+.auth-card input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1.5px solid #ccc;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.auth-card input:focus {
+    border-color: #2c5364;
+    outline: none;
+    box-shadow: 0 0 5px rgba(44,83,100,0.2);
+}
+
+.auth-card button {
+    width: 100%;
+    padding: 12px 0;
+    border-radius: 8px;
+    border: none;
+    background: #28a745;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.auth-card button:hover {
+    background: #218838;
+    transform: translateY(-2px);
+}
+
+.error {
+    color: red;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+/* ===============================
+   DASHBOARD PAGE
+================================ */
+.dashboard-page {
+    min-height: 100vh;
+    padding-top: 60px;
+}
+
+.dashboard-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.logout-btn {
+    background: #fff;
+    color: #2c5364;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: #e6e6e6;
+}
+
+/* DASHBOARD CONTENT */
+.dashboard-container {
+    padding: 100px 30px 40px 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.room-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 280px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.room-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.room-card h3 {
+    font-size: 18px;
+    color: #2c5364;
+    margin-bottom: 6px;
+}
+
+.room-card p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.room-card a.book-btn {
+    display: inline-block;
+    padding: 10px 16px;
+    background: #28a745;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.room-card a.book-btn:hover {
+    background: #218838;
+}
+
+.room-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* ===============================
+   BOOKING PAGE
+================================ */
+.booking-page, .booking-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f4f6f8;
+    padding: 20px;
+}
+
+.booking-card {
+    background: #fff;
+    padding: 30px 25px;
+    border-radius: 12px;
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.booking-card h2 {
+    color: #2c5364;
+    margin-bottom: 20px;
+}
+
+.booking-card label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #555;
+}
+
+.booking-card input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1.5px solid #ccc;
+    margin-bottom: 15px;
+}
+
+.booking-card input:focus {
+    border-color: #2c5364;
+    outline: none;
+    box-shadow: 0 0 5px rgba(44,83,100,0.2);
+}
+
+.booking-card button {
+    width: 100%;
+    padding: 12px 0;
+    border-radius: 8px;
+    border: none;
+    background: #28a745;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.booking-card button:hover {
+    background: #218838;
+    transform: translateY(-2px);
+}
+
+/* ===============================
+   PAYMENT PAGE
+================================ */
+.payment-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* full viewport height */
+    width: 100%;
+    background: #f4f6f8;
+    padding: 0 20px;
+}
+
+.payment-card {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    max-width: 450px;
+    width: 100%;
+    text-align: center; /* center text */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.payment-card h2 {
+    color: #2c5364;
+    margin-bottom: 20px;
+}
+
+.payment-card p {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 15px;
+    color: #555;
+}
+
+.payment-card .price {
+    font-weight: 600;
+    font-size: 20px;
+    color: #2c5364;
+    margin-bottom: 25px;
+}
+
+.payment-card button {
+    width: 100%;
+    padding: 14px 0;
+    border-radius: 8px;
+    border: none;
+    background: #28a745;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.payment-card button:hover {
+    background: #218838;
+    transform: translateY(-2px);
+}
+
+/* ===============================
+   PAYMENT SUCCESS PAGE
+================================ */
+.payment-success-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* full viewport height */
+    width: 100%;
+    background: #f4f6f8;
+    padding: 0 20px;
+}
+
+.payment-success-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 40px 30px;
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.payment-success-card h2 {
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+.payment-success-card p {
+    font-size: 15px;
+    color: #555;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.payment-success-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.payment-success-card .success-message {
+    font-size: 18px;
+    color: #28a745;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+    .dashboard-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        padding: 100px 20px 40px 20px;
+    }
+
+    .room-card img {
+        height: 150px;
+    }
+
+    .room-card h3 {
+        font-size: 16px;
+    }
+
+    .room-card p,
+    .room-card a.book-btn {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-container {
+        padding: 100px 10px 30px 10px;
+    }
+
+    .room-card {
+        max-width: 100%;
+    }
+
+    .room-card img {
+        height: 140px;
+    }
+
+    .booking-card, .payment-card, .payment-success-card {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .booking-card h2, .payment-card h2, .payment-success-card h2 {
+        font-size: 20px;
+    }
+    .payment-card, .payment-success-card {
+        width: 90%;
+        padding: 25px 20px;
+    }
+
+    .payment-card h2, .payment-success-card h2 {
+        font-size: 20px;
+    }
+
+    .payment-card p, .payment-success-card p {
+        font-size: 14px;
+    }
+}
+
+/* ===============================
+   HOME PAGE (HERO SECTION)
+================================ */
+
+/* ===============================
+   HOME PAGE – FORCE OVERRIDE
+================================ */
+
+.home-page .home-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.home-page .home-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.15);
+    filter: brightness(65%);
+}
+
+.home-page .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        rgba(0,0,0,0.6),
+        rgba(0,0,0,0.85)
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-page .overlay h1 {
+    font-size: 56px;
+    font-weight: 800;
+    margin-bottom: 35px;
+    text-shadow: 0 6px 15px rgba(0,0,0,0.7);
+}
+
+/* HOME BUTTONS */
+.home-page .btn-group {
+    display: flex;
+    gap: 30px;
+}
+
+.home-page .btn {
+    padding: 16px 50px;
+    font-size: 19px;
+    border-radius: 60px;
+    background: linear-gradient(135deg, #ff9800, #ff5722);
+}
+
+.home-page .btn-secondary {
+    background: linear-gradient(135deg, #2196f3, #0d47a1);
+}
+
+.home-page .btn:hover,
+.home-page .btn-secondary:hover {
+    transform: translateY(-6px) scale(1.06);
+}

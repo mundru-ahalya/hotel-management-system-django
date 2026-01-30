@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | Hotel Management</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<div class="auth-page">
+    <div class="auth-card">
+        <h2>Welcome Back</h2>
+        <p class="auth-subtitle">Login to your account</p>
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <form method="POST" autocomplete="off">
+            {% csrf_token %}
+
+            <!-- Username -->
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter username" autocomplete="new-username" required>
+
+            <!-- Password -->
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter password" autocomplete="new-password" required>
+
+            <button type="submit">Login</button>
+        </form>
+        <p><a href="{% url 'accounts:password_reset' %}">Forgot Password?</a></p>
+
+        <p>Don’t have an account? <a href="{% url 'accounts:register' %}">Register</a></p>
+    </div>
+</div>
+
+</body>
+</html>

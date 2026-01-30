@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Confirmed | Hotel Management</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<div class="dashboard-page">
+    <div class="dashboard-navbar">
+        <h2>Booking Confirmed!</h2>
+        <a href="{% url 'accounts:dashboard' %}" class="logout-btn">Dashboard</a>
+    </div>
+
+    <div class="dashboard-container">
+        <div class="room-card">
+            <h3>Room {{ booking.room.room_number }} - {{ booking.room.room_type }}</h3>
+            <p><strong>Check-in:</strong> {{ booking.check_in }}</p>
+            <p><strong>Check-out:</strong> {{ booking.check_out }}</p>
+            <p><strong>Total Price:</strong> ₹{{ booking.total_price }}</p>
+
+            {% if booking.room.image_name %}
+                <img src="{% static 'images/'|add:booking.room.image_name %}" alt="Room {{ booking.room.room_number }}">
+            {% else %}
+                <img src="{% static 'images/room1.jpg' %}" alt="Room">
+            {% endif %}
+
+            <p class="success-message">Payment Successful! Your booking is confirmed.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Management System</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- HOME PAGE ONLY STYLES -->
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .home-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .home-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .overlay h1 {
+            font-size: 48px;
+            margin-bottom: 30px;
+        }
+        a{
+          text-decoration: none;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 20px;
+        }
+
+
+        button,.btn,
+        input[type="submit"] {
+          background-color: #007bff !important; /* blue */
+          color: white !important;
+          border: none;
+          padding: 10px 16px;
+          border-radius: 6px;
+          cursor: pointer;
+        }
+
+        button:hover,
+        .btn:hover,
+        input[type="submit"]:hover {
+          background-color: #0056b3 !important; /* dark blue */
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="home-container">
+    <img src="{% static 'images/hotel_main_page.jpg' %}" alt="Hotel" class="home-image">
+
+    <div class="overlay">
+        <h1>Welcome to Hotel Management System</h1>
+
+        <div class="btn-group">
+            <a href="{% url 'accounts:login' %}" class="btn">Login</a>
+            <a href="{% url 'accounts:register' %}" class="btn">Register</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

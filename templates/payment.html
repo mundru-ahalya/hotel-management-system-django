@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment | Hotel Management</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<div class="payment-page">
+    <h2>Payment Page</h2>
+
+    <p><b>Room:</b> {{ booking.room.room_number }} - {{ booking.room.room_type }}</p>
+    <p><b>Total Amount:</b> ₹{{ booking.total_price }}</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Pay Now</button>
+    </form>
+</div>
+
+</body>
+</html>

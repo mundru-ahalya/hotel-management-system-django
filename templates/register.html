@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register | Hotel Management</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<div class="auth-page">
+    <div class="auth-card">
+        <h2>Create Account</h2>
+        <p class="auth-subtitle">Register your new account</p>
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <form method="POST" autocomplete="off">
+            {% csrf_token %}
+
+            <!-- Username -->
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter username" autocomplete="new-username" required>
+
+            <!-- Email -->
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter email" autocomplete="new-email" required>
+
+            <!-- Password -->
+            <label for="password1">Password</label>
+            <input type="password" id="password1" name="password1" placeholder="Enter password" autocomplete="new-password" required>
+
+            <!-- Confirm Password -->
+            <label for="password2">Confirm Password</label>
+            <input type="password" id="password2" name="password2" placeholder="Confirm password" autocomplete="new-password" required>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <p>Already have an account? <a href="{% url 'accounts:login' %}">Login</a></p>
+    </div>
+</div>
+
+</body>
+</html>
